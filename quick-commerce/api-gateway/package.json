@@ -1,0 +1,12 @@
+{
+  "name": "quick-commerce-api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway for Quick-Commerce App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
