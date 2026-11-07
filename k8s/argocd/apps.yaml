@@ -1,0 +1,75 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quick-commerce-api-gateway
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/thinksapient/microservices-monorepo.git
+    targetRevision: main
+    path: k8s/quick-commerce
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quick-commerce-order-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/thinksapient/microservices-monorepo.git
+    targetRevision: main
+    path: k8s/quick-commerce
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quick-commerce-inventory-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/thinksapient/microservices-monorepo.git
+    targetRevision: main
+    path: k8s/quick-commerce
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quick-commerce-dispatch-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/thinksapient/microservices-monorepo.git
+    targetRevision: main
+    path: k8s/quick-commerce
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
