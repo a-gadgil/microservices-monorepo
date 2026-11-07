@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dispatch-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dispatch-service
+  template:
+    metadata:
+      labels:
+        app: dispatch-service
+    spec:
+      containers:
+      - name: dispatch-service
+        image: baremetal24/quick-commerce-dispatch-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dispatch-service
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: dispatch-service
+  ports:
+  - port: 8003
+    targetPort: 8003
