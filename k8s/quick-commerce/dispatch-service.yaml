@@ -16,7 +16,7 @@ spec:
       containers:
       - name: dispatch-service
         image: baremetal24/quick-commerce-dispatch-service:latest
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8003
 ---
