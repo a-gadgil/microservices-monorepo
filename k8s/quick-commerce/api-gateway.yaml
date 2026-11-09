@@ -16,7 +16,7 @@ spec:
       containers:
       - name: api-gateway
         image: baremetal24/quick-commerce-api-gateway:latest
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
