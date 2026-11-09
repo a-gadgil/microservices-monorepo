@@ -16,7 +16,7 @@ spec:
       containers:
       - name: order-service
         image: baremetal24/quick-commerce-order-service:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         ports:
         - containerPort: 8000
 ---
